@@ -1,0 +1,41 @@
+{
+  "languageModal": {
+    "title": "Choose Your Language",
+    "subtitle": "Select your preferred language to continue",
+    "english": "English",
+    "hausa": "Hausa"
+  },
+  "hero": {
+    "title": "Join Our Waitlist",
+    "subtitle": "Be the first to know when we launch. Get exclusive early access and special offers.",
+    "description": "We're building something amazing and we want you to be part of it from day one. Join thousands of others who are already on our waitlist."
+  },
+  "form": {
+    "title": "Get Early Access",
+    "fullName": {
+      "label": "Full Name",
+      "placeholder": "Enter your full name"
+    },
+    "phoneNumber": {
+      "label": "WhatsApp Number",
+      "placeholder": "e.g., 08123456789, +2348123456789, or 2348123456789"
+    },
+    "submit": "Join Waitlist",
+    "submitting": "Joining..."
+  },
+  "success": {
+    "title": "Welcome to the Waitlist!",
+    "message": "Thank you for joining our waitlist. We'll notify you via WhatsApp when we launch.",
+    "shareMessage": "Share with friends",
+    "close": "Close"
+  },
+  "errors": {
+    "required": "This field is required",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Must not exceed {{max}} characters",
+    "invalidPhone": "Please enter a valid Nigerian phone number (e.g., 08123456789, +2348123456789, or 2348123456789)",
+    "phoneExists": "This phone number is already registered",
+    "networkError": "Network error. Please check your connection and try again.",
+    "serverError": "Something went wrong. Please try again later."
+  }
+}

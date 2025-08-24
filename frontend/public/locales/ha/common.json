@@ -1,0 +1,41 @@
+{
+  "languageModal": {
+    "title": "Zaɓi Harshenka",
+    "subtitle": "Zaɓi harshen da kake so don ci gaba",
+    "english": "Turanci",
+    "hausa": "Hausa"
+  },
+  "hero": {
+    "title": "Shiga Jerin Jira",
+    "subtitle": "Ka zama na farko da ya sani lokacin da muka ƙaddamar. Samu damar shiga da wuri da tayin musamman.",
+    "description": "Muna gina wani abu mai ban mamaki kuma muna son ka zama ɓangare daga rana ta farko. Shiga dubban mutane waɗanda suka riga suka shiga jerin jiranmu."
+  },
+  "form": {
+    "title": "Samu Damar Shiga Da Wuri",
+    "fullName": {
+      "label": "Cikakken Suna",
+      "placeholder": "Shigar da cikakken sunanka"
+    },
+    "phoneNumber": {
+      "label": "Lambar WhatsApp",
+      "placeholder": "misali, 08123456789, +2348123456789, ko 2348123456789"
+    },
+    "submit": "Shiga Jerin Jira",
+    "submitting": "Ana Shigawa..."
+  },
+  "success": {
+    "title": "Maraba da kai a Jerin Jira!",
+    "message": "Na gode da shiga jerin jiranmu. Za mu sanar da kai ta WhatsApp lokacin da muka ƙaddamar.",
+    "shareMessage": "Raba da abokai",
+    "close": "Rufe"
+  },
+  "errors": {
+    "required": "Ana buƙatar wannan filin",
+    "minLength": "Dole ya zama aƙalla haruffa {{min}}",
+    "maxLength": "Kada ya wuce haruffa {{max}}",
+    "invalidPhone": "Da fatan za a shigar da ingantaccen lambar waya ta Najeriya (misali, 08123456789, +2348123456789, ko 2348123456789)",
+    "phoneExists": "An riga an yi rajista da wannan lambar waya",
+    "networkError": "Kuskuren hanyar sadarwa. Da fatan za a duba haɗin ku kuma a sake gwadawa.",
+    "serverError": "Wani abu ya ɓace. Da fatan za a sake gwadawa daga baya."
+  }
+}
