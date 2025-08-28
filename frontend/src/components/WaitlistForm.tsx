@@ -88,7 +88,7 @@ export default function WaitlistForm() {
         {/* Full Name Field */}
         <div>
           <label htmlFor="full_name" className="block text-sm font-medium text-gray-700 mb-2">
-            {t('form.fullName.label')}
+            {t('form.name')}
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -100,7 +100,7 @@ export default function WaitlistForm() {
               name="full_name"
               value={formData.full_name}
               onChange={handleInputChange}
-              placeholder={t('form.fullName.placeholder')}
+              placeholder={t('form.namePlaceholder')}
               className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
                 errors.full_name
                   ? 'border-red-300 bg-red-50'
@@ -117,7 +117,7 @@ export default function WaitlistForm() {
         {/* Phone Number Field */}
         <div>
           <label htmlFor="phone_number" className="block text-sm font-medium text-gray-700 mb-2">
-            {t('form.phoneNumber.label')}
+            {t('form.phoneNumber')}
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -129,7 +129,7 @@ export default function WaitlistForm() {
               name="phone_number"
               value={formData.phone_number}
               onChange={handleInputChange}
-              placeholder={t('form.phoneNumber.placeholder')}
+              placeholder={t('form.phonePlaceholder')}
               className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
                 errors.phone_number
                   ? 'border-red-300 bg-red-50'

@@ -5,29 +5,81 @@
     "english": "Turanci",
     "hausa": "Hausa"
   },
+  "header": {
+    "brand": "KasuaBuy",
+    "joinWaitlist": "Shiga Jerin Jira"
+  },
   "hero": {
-    "title": "Shiga Jerin Jira",
-    "subtitle": "Ka zama na farko da ya sani lokacin da muka ƙaddamar. Samu damar shiga da wuri da tayin musamman.",
-    "description": "Muna gina wani abu mai ban mamaki kuma muna son ka zama ɓangare daga rana ta farko. Shiga dubban mutane waɗanda suka riga suka shiga jerin jiranmu."
+    "title": "Ga namu Aikace-aikacen Siyayya ta Intanet na Arewa ya iso!",
+    "subtitle": {
+      "starting_from": "Farawa daga",
+      "gombe": "Gombe!",
+      "spreading_north": "Yaduwa a duk Arewa!"
+    },
+    "buyers": "Masu saye",
+    "artisans": "Masu sana'a",
+    "smallBusinessOwners": "Masu kananan kasuwanci",
+    "sellers": "Masu sayarwa"
+  },
+  "waitlist": {
+    "title": "Za mu ƙaddamar da wuri a 2025!",
+    "subtitle": "Ka zama na farko da ya sani ainihin lokacin da KasuaBuy zai fara aiki. Kada ka rasa.",
+    "signedUp": "Mutane 20 sun yi rajista"
   },
   "form": {
-    "title": "Samu Damar Shiga Da Wuri",
-    "fullName": {
-      "label": "Cikakken Suna",
-      "placeholder": "Shigar da cikakken sunanka"
-    },
-    "phoneNumber": {
-      "label": "Lambar WhatsApp",
-      "placeholder": "misali, 08123456789, +2348123456789, ko 2348123456789"
-    },
+    "name": "Suna",
+    "phoneNumber": "Lambar Waya",
+    "namePlaceholder": "Shigar da cikakken sunanka",
+    "phonePlaceholder": "Shigar da lambar wayarka",
     "submit": "Shiga Jerin Jira",
     "submitting": "Ana Shigawa..."
+  },
+  "bottom": {
+    "title": "Saya da Sayarwa duk abin da kake so koyaushe.",
+    "subtitle": "An yi shi musamman da kuma gida don kowane ɗan kasuwa na Arewacin Najeriya.",
+    "asSeller": "A matsayin Mai Sayarwa",
+    "asBuyer": "A matsayin Mai Saye",
+    "subscribe": "Yi Rajista",
+    "joinCommunity": "Shiga Al'umma",
+    "email": "info@kasuabuy.com | support@kasuabuy.com"
   },
   "success": {
     "title": "Maraba da kai a Jerin Jira!",
     "message": "Na gode da shiga jerin jiranmu. Za mu sanar da kai ta WhatsApp lokacin da muka ƙaddamar.",
     "shareMessage": "Raba da abokai",
     "close": "Rufe"
+  },
+  "nav": {
+    "home": "Gida",
+    "features": "Fasaloli",
+    "about": "Game da Mu",
+    "hero_section": "Sashin Jarumai",
+    "join_waitlist": "Shiga Jerin Jira",
+    "about_app": "Game da App"
+  },
+  "features": {
+    "marketplace": {
+      "title": "Kasuwar Yanar Gizo",
+      "description": "Saya da sayar da kayayyaki cikin sauƙi tare da kasuwarmu mai sauƙin amfani da aka ƙera don Arewacin Najeriya."
+    },
+    "community": {
+      "title": "Hanyar Sadarwar Al'umma",
+      "description": "Haɗu da 'yan kasuwa na gida kuma gina dangantakar kasuwanci mai dorewa a yankinku."
+    },
+    "local_business": {
+      "title": "Littafin Kasuwancin Gida",
+      "description": "Gano da haɓaka kasuwancin gida a duk jihohin Arewacin Najeriya."
+    },
+    "secure_payments": {
+      "title": "Biyan Kuɗi Mai Aminci",
+      "description": "Tsarin biyan kuɗi mai aminci da abin dogaro da aka keɓe don bankunan Najeriya da kuɗin wayar hannu."
+    }
+  },
+  "about": {
+    "our_mission": "Manufarmu",
+    "team": "Ƙungiyarmu",
+    "northern_nigeria": "Mayar da Hankali ga Arewacin Najeriya",
+    "contact": "Tuntuɓe Mu"
   },
   "errors": {
     "required": "Ana buƙatar wannan filin",

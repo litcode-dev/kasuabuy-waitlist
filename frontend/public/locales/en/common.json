@@ -5,29 +5,81 @@
     "english": "English",
     "hausa": "Hausa"
   },
+  "header": {
+    "brand": "KasuaBuy",
+    "joinWaitlist": "Join Waitlist"
+  },
   "hero": {
-    "title": "Join Our Waitlist",
-    "subtitle": "Be the first to know when we launch. Get exclusive early access and special offers.",
-    "description": "We're building something amazing and we want you to be part of it from day one. Join thousands of others who are already on our waitlist."
+    "title": "Our very own Northern Online Shopping App is here!",
+    "subtitle": {
+      "starting_from": "Starting From",
+      "gombe": "Gombe!",
+      "spreading_north": "Spreading Across The North and Africa!"
+    },
+    "buyers": "Buyers",
+    "artisans": "Artisans",
+    "smallBusinessOwners": "Small business owners",
+    "sellers": "Sellers"
+  },
+  "waitlist": {
+    "title": "We're launching soon in 2025!",
+    "subtitle": "Be the first to know exactly when KasuaBuy goes live. Don't miss out.",
+    "signedUp": "20 people have signed up"
   },
   "form": {
-    "title": "Get Early Access",
-    "fullName": {
-      "label": "Full Name",
-      "placeholder": "Enter your full name"
-    },
-    "phoneNumber": {
-      "label": "WhatsApp Number",
-      "placeholder": "e.g., 08123456789, +2348123456789, or 2348123456789"
-    },
+    "name": "Name",
+    "phoneNumber": "Phone Number",
+    "namePlaceholder": "Enter your full name",
+    "phonePlaceholder": "Enter your phone number",
     "submit": "Join Waitlist",
     "submitting": "Joining..."
+  },
+  "bottom": {
+    "title": "Buy and Sell whatever you want anytime you want.",
+    "subtitle": "Made Specially and Locally for every Northern Nigerian Entrepreneur.",
+    "asSeller": "As Seller",
+    "asBuyer": "As Buyer",
+    "subscribe": "Subscribe",
+    "joinCommunity": "Join Community",
+    "email": "info@kasuabuy.com | support@kasuabuy.com"
   },
   "success": {
     "title": "Welcome to the Waitlist!",
     "message": "Thank you for joining our waitlist. We'll notify you via WhatsApp when we launch.",
     "shareMessage": "Share with friends",
     "close": "Close"
+  },
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "about": "About",
+    "hero_section": "Hero Section",
+    "join_waitlist": "Join Waitlist",
+    "about_app": "About App"
+  },
+  "features": {
+    "marketplace": {
+      "title": "Online Marketplace",
+      "description": "Buy and sell products easily with our user-friendly marketplace designed for Northern Nigeria."
+    },
+    "community": {
+      "title": "Community Network",
+      "description": "Connect with local entrepreneurs and build lasting business relationships in your area."
+    },
+    "local_business": {
+      "title": "Local Business Directory",
+      "description": "Discover and promote local businesses across Northern Nigerian states."
+    },
+    "secure_payments": {
+      "title": "Secure Payments",
+      "description": "Safe and reliable payment system tailored for Nigerian banking and mobile money."
+    }
+  },
+  "about": {
+    "our_mission": "Our Mission",
+    "team": "Our Team",
+    "northern_nigeria": "Northern Nigeria Focus",
+    "contact": "Contact Us"
   },
   "errors": {
     "required": "This field is required",
