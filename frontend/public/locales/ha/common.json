@@ -28,8 +28,11 @@
   },
   "form": {
     "name": "Suna",
+    "email": "Imel",
     "phoneNumber": "Lambar Waya",
+    "optional": "na zaɓi",
     "namePlaceholder": "Shigar da cikakken sunanka",
+    "emailPlaceholder": "Shigar da adireshin imel ɗinka",
     "phonePlaceholder": "Shigar da lambar wayarka",
     "submit": "Shiga Jerin Jira",
     "submitting": "Ana Shigawa..."

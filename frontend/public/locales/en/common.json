@@ -28,9 +28,12 @@
   },
   "form": {
     "name": "Name",
+    "email": "Email",
     "phoneNumber": "Phone Number",
-    "namePlaceholder": "Enter your full name",
-    "phonePlaceholder": "Enter your phone number",
+    "optional": "optional",
+    "namePlaceholder": "Full name",
+    "emailPlaceholder": "Email address",
+    "phonePlaceholder": "Phone number",
     "submit": "Join Waitlist",
     "submitting": "Joining..."
   },

@@ -2,11 +2,12 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export interface WaitlistData {
   full_name: string;
+  email?: string;
   phone_number: string;
   language: string;
 }
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean;
   message: string;
   data?: T;
@@ -16,6 +17,7 @@ export interface ApiResponse<T = any> {
 export interface WaitlistEntry {
   id: number;
   full_name: string;
+  email?: string;
   phone_number: string;
   language: string;
   created_at: string;

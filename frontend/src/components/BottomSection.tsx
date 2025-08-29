@@ -67,12 +67,13 @@ export default function BottomSection() {
                                 {t("bottom.subscribe")}
                                 <ArrowUpRight className="w-3 h-3 lg:w-4 lg:h-4 ml-1 lg:ml-2" />
                             </button>
-                            <button
+                            <Link
+                            href={'https://chat.whatsapp.com/LHbfsgUiJqr0VrpAKEJX5s?mode=ems_wa_c'}
                                 className="text-[#5F017B] px-6 py-3 rounded-full text-[11px] lg:text-[14px] hover:scale-105 hover:shadow-3xl hover:bg-yellow-300 transition-all duration-300 ease-in-out shadow-lg"
                                 style={{ backgroundColor: "#FCD34D" }}
                             >
                                 {t("bottom.joinCommunity")}
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

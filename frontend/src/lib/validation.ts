@@ -9,7 +9,7 @@ function validateNigerianPhone(phone: string): { isValid: boolean; normalized?: 
 
   // Remove all non-digit characters except +
   const cleaned = phone.replace(/[^\d+]/g, '');
-  
+
   // Check for invalid characters (if cleaned version is different from original after removing spaces/dashes)
   const allowedChars = phone.replace(/[\d+\s\-()]/g, '');
   if (allowedChars.length > 0) {
@@ -63,10 +63,10 @@ function validateNigerianPhone(phone: string): { isValid: boolean; normalized?: 
 }
 
 // Legacy function for backward compatibility
-function normalizeNigerianPhone(phone: string): string | null {
-  const result = validateNigerianPhone(phone);
-  return result.isValid ? result.normalized! : null;
-}
+// function normalizeNigerianPhone(phone: string): string | null {
+//   const result = validateNigerianPhone(phone);
+//   return result.isValid ? result.normalized! : null;
+// }
 
 export const waitlistSchema = z.object({
   full_name: z
@@ -74,6 +74,12 @@ export const waitlistSchema = z.object({
     .min(2, 'Full name must be at least 2 characters')
     .max(100, 'Full name cannot exceed 100 characters')
     .trim(),
+  email: z
+    .string()
+    .email('Please enter a valid email address')
+    .max(255, 'Email address cannot exceed 255 characters')
+    .optional()
+    .or(z.literal('')),
   phone_number: z
     .string()
     .refine(
@@ -82,10 +88,7 @@ export const waitlistSchema = z.object({
         return result.isValid;
       },
       {
-        message: (phone) => {
-          const result = validateNigerianPhone(phone);
-          return result.error || 'Please enter a valid Nigerian phone number (e.g., +2348123456789, 08123456789, or 2348123456789)';
-        },
+        message: 'Please enter a valid Nigerian phone number (e.g., +2348123456789, 08123456789, or 2348123456789)',
       }
     )
     .transform((phone) => {
@@ -93,9 +96,9 @@ export const waitlistSchema = z.object({
       return result.isValid ? result.normalized! : phone;
     }),
   language: z.enum(['en', 'ha'], {
-    required_error: 'Language selection is required',
+    message: 'Language selection is required',
   }),
-});
+})
 
 export type WaitlistFormData = z.infer<typeof waitlistSchema>;
 
@@ -113,9 +116,9 @@ export function validateWaitlistForm(data: unknown): {
   } catch (error) {
     if (error instanceof z.ZodError) {
       const errors: Record<string, string> = {};
-      error.errors.forEach((err) => {
+      error.issues.forEach((err) => {
         if (err.path.length > 0) {
-          errors[err.path[0]] = err.message;
+          errors[String(err.path[0])] = err.message;
         }
       });
       return {

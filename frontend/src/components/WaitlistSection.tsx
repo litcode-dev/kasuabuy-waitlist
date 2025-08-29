@@ -13,7 +13,7 @@ export default function WaitlistSection() {
   const { t } = useTranslation('common');
   const { getCurrentLanguage } = useLanguage();
   const { isSubmitting, isSuccess, errors, submitForm, resetForm } = useWaitlist();
-  
+
   // Parallax scroll effects
   const { scrollYProgress } = useScroll();
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
@@ -21,6 +21,7 @@ export default function WaitlistSection() {
 
   const [formData, setFormData] = useState<WaitlistFormData>({
     full_name: '',
+    email: '',
     phone_number: '',
     language: getCurrentLanguage(),
   });
@@ -44,6 +45,7 @@ export default function WaitlistSection() {
     if (success) {
       setFormData({
         full_name: '',
+        email: '',
         phone_number: '',
         language: getCurrentLanguage(),
       });
@@ -97,14 +99,14 @@ export default function WaitlistSection() {
   return (
     <div id="waitlist" className="flex flex-col justify-center items-center py-24 lg:py-16 px-4 relative overflow-hidden  lg:h-[80dvh]" style={{backgroundColor: '#5F017B'}}>
       {/* Confetti/Flower decorations with parallax */}
-      <motion.div 
+      <motion.div
         className="lg:absolute  hidden lg:flex items-center inset-0 pointer-events-none"
         style={{ y: y1 }}
       >
        <Image src={'/flower.png'} width={400} height={400} alt="flower" />
       </motion.div>
 
-       <motion.div 
+       <motion.div
          className="flex lg:hidden items-center h-32 w-32 inset-0 pointer-events-none"
          style={{ y: y2 }}
        >
@@ -113,7 +115,7 @@ export default function WaitlistSection() {
 
       <div className="max-w-full  text-center text-white relative z-10">
         {/* Title */}
-        <motion.h2 
+        <motion.h2
           className=" text-[36px] lg:text-[48px] font-medium mb-4"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +127,7 @@ export default function WaitlistSection() {
         </motion.h2>
 
         {/* Subtitle */}
-        <motion.p 
+        <motion.p
           className="text-[24px] lg:text-[32px] mb-8 px-[10%] text-center "
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -136,7 +138,7 @@ export default function WaitlistSection() {
         </motion.p>
 
         {/* User Avatars */}
-        <motion.div 
+        <motion.div
           className="flex items-center justify-center mb-8"
           initial={{ opacity: 0, scale: 0.8, y: 30 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -161,8 +163,8 @@ export default function WaitlistSection() {
         </motion.div>
 
         {/* Form */}
-        <motion.form 
-          onSubmit={handleSubmit} 
+        <motion.form
+          onSubmit={handleSubmit}
           className="space-y-4 px-10 lg:px-36 "
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -177,7 +179,7 @@ export default function WaitlistSection() {
           )}
 
           {/* Name Field */}
-          <motion.div 
+          <motion.div
             className="text-left"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -203,13 +205,40 @@ export default function WaitlistSection() {
             )}
           </motion.div>
 
-          {/* Phone Field */}
-          <motion.div 
+          {/* Email Field */}
+          <motion.div
             className="text-left"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <label className="block text-white text-sm font-medium mb-2">
+              {t('form.email')} <span className="text-gray-300 text-xs">({t('form.optional')})</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              placeholder={t('form.emailPlaceholder')}
+              className={`w-full px-6 py-4 text-[11px] lg:text-[14px] rounded-full border-0 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base ${
+                errors.email ? 'bg-red-50' : 'bg-white'
+              }`}
+              disabled={isSubmitting}
+            />
+            {errors.email && (
+              <p className="mt-2 text-sm text-red-200">{errors.email}</p>
+            )}
+          </motion.div>
+
+          {/* Phone Field */}
+          <motion.div
+            className="text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
           >
             <label className="block text-white text-sm font-medium mb-2">
               {t('form.phoneNumber')}
@@ -231,12 +260,12 @@ export default function WaitlistSection() {
           </motion.div>
 
           {/* Submit Button */}
-          <motion.div 
+          <motion.div
             className='flex flex-col items-center'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
           >
 
           <button

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { submitWaitlist, ApiError, type WaitlistData, type WaitlistEntry } from '@/lib/api';
+import { submitWaitlist, ApiError, type WaitlistEntry } from '@/lib/api';
 import { validateWaitlistForm, type WaitlistFormData } from '@/lib/validation';
 
 export function useWaitlist() {

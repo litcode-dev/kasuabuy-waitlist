@@ -30,6 +30,12 @@ A modern, bilingual waitlist application built with Laravel 12 and Next.js 15, f
 - **⚡ Real-time Updates**: Instant language switching and form feedback
 - **🔒 Data Validation**: Comprehensive frontend and backend validation
 - **📊 Lead Collection**: Efficient system for gathering qualified leads before product launch
+- **🎬 Advanced Animations**: Framer Motion powered animations with parallax effects
+- **⌨️ Typewriter Effects**: Dynamic text animations for engaging user experience
+- **🧭 Floating Navigation**: Smooth floating navigation with scroll-based visibility
+- **🎯 Scroll Animations**: Scroll-triggered reveal animations and parallax backgrounds
+- **🎨 Interactive Elements**: Hover effects and micro-interactions throughout the interface
+- **📱 Touch Optimized**: Enhanced mobile interactions with gesture support
 
 ## 🛠 Technology Stack
 
@@ -40,12 +46,15 @@ A modern, bilingual waitlist application built with Laravel 12 and Next.js 15, f
 - **Composer** - Dependency management
 
 ### Frontend
-- **Next.js 15** - React framework
-- **React 18** - UI library
+- **Next.js 15** - React framework with Turbopack
+- **React 19** - UI library
 - **TypeScript** - Type safety
-- **Tailwind CSS 4** - Styling
+- **Tailwind CSS 4** - Utility-first styling
+- **Framer Motion** - Advanced animations and interactions
 - **next-i18next** - Internationalization
 - **Zod** - Form validation
+- **Lucide React** - Modern icon library
+- **Class Variance Authority** - Component styling utilities
 
 ## 📋 Product Requirements
 
@@ -433,7 +442,15 @@ kasuabuy-waitlist/
 │   │   │   ├── LanguageModal.tsx
 │   │   │   ├── WaitlistForm.tsx
 │   │   │   ├── HeroSection.tsx
-│   │   │   └── SuccessMessage.tsx
+│   │   │   ├── WaitlistSection.tsx
+│   │   │   ├── BottomSection.tsx
+│   │   │   ├── SuccessMessage.tsx
+│   │   │   ├── floating-nav.tsx
+│   │   │   └── ui/
+│   │   │       ├── typewriter-effect.tsx
+│   │   │       ├── text-generate-effect.tsx
+│   │   │       ├── floating-navbar.tsx
+│   │   │       └── navbar-menu.tsx
 │   │   ├── pages/
 │   │   │   ├── index.tsx
 │   │   │   └── api/              # Proxy to Laravel if needed
@@ -442,7 +459,8 @@ kasuabuy-waitlist/
 │   │   │   └── useWaitlist.ts
 │   │   ├── lib/
 │   │   │   ├── api.ts
-│   │   │   └── validation.ts
+│   │   │   ├── validation.ts
+│   │   │   └── utils.ts
 │   │   └── styles/
 │   │       └── globals.css
 │   ├── public/
@@ -466,8 +484,76 @@ kasuabuy-waitlist/
 - **`app/Models/WaitlistEntry.php`** - Waitlist database model
 - **`frontend/src/components/WaitlistForm.tsx`** - Main form component
 - **`frontend/src/components/LanguageModal.tsx`** - Language selection modal
+- **`frontend/src/components/floating-nav.tsx`** - Floating navigation component
+- **`frontend/src/components/ui/typewriter-effect.tsx`** - Typewriter animation component
+- **`frontend/src/components/ui/text-generate-effect.tsx`** - Text generation animation
 - **`frontend/src/lib/validation.ts`** - Frontend form validation
+- **`frontend/src/lib/utils.ts`** - Utility functions and helpers
 - **`frontend/public/locales/`** - English and Hausa translations
+
+## 🎨 UI Components & Animations
+
+### Animation Features
+
+The application leverages **Framer Motion** for sophisticated animations and interactions:
+
+#### Scroll-Based Animations
+- **Parallax Effects**: Background images move at different speeds during scroll
+- **Reveal Animations**: Elements fade in and slide up when scrolled into view
+- **Staggered Animations**: Form fields and content blocks animate in sequence
+- **Scroll-Triggered Effects**: Animations activate based on scroll position
+
+#### Interactive Components
+- **Typewriter Effect**: Dynamic text typing animation for headlines
+- **Text Generation**: Smooth character-by-character text reveal
+- **Hover Animations**: Scale, rotation, and color transitions on interactive elements
+- **Button Effects**: Enhanced hover states with scale and shadow changes
+
+#### Navigation Features
+- **Floating Navigation**: Auto-hiding navigation bar based on scroll direction
+- **Smooth Scrolling**: Animated transitions between page sections
+- **Language Toggle**: Animated language switching with page reload
+- **Mobile Optimized**: Touch-friendly interactions and gestures
+
+### Component Architecture
+
+```typescript
+// Example: Typewriter Effect Usage
+<TypewriterEffect
+  words={[
+    { text: "Welcome", className: "text-blue-500" },
+    { text: "to", className: "text-gray-900" },
+    { text: "KasuaBuy", className: "text-purple-600" }
+  ]}
+  className="text-4xl font-bold"
+  cursorClassName="bg-blue-500"
+/>
+
+// Example: Scroll Animation
+<motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.8 }}
+>
+  <YourContent />
+</motion.div>
+
+// Example: Parallax Background
+<motion.div
+  style={{
+    y: useTransform(scrollY, [0, 1000], [0, -200])
+  }}
+  className="absolute inset-0 bg-cover bg-center"
+/>
+```
+
+### Performance Optimizations
+
+- **Viewport Detection**: Animations only trigger when elements are visible
+- **Once Animation**: Prevents re-triggering of animations on scroll
+- **Hardware Acceleration**: GPU-accelerated transforms for smooth performance
+- **Reduced Motion**: Respects user's motion preferences for accessibility
 
 ## 🌐 Internationalization
 
@@ -729,10 +815,14 @@ This comprehensive README includes detailed documentation from:
 - ✅ **Frontend Development**: React/Next.js application with bilingual support
 - ✅ **Backend Development**: Laravel API with comprehensive validation
 - ✅ **Database Design**: Optimized schema with proper indexing
-- ✅ **Internationalization**: English and Hausa language support
+- ✅ **Internationalization**: English and Hausa language support with automatic reload
 - ✅ **Form Validation**: Frontend and backend validation with user-friendly errors
 - ✅ **Responsive Design**: Mobile-first approach with modern UI
-- ✅ **Documentation**: Comprehensive README with all technical details
+- ✅ **Advanced Animations**: Framer Motion integration with parallax and scroll effects
+- ✅ **Interactive Components**: Typewriter effects, floating navigation, and micro-interactions
+- ✅ **Performance Optimization**: Hardware-accelerated animations and viewport detection
+- ✅ **Accessibility**: Motion preferences and touch-optimized interactions
+- ✅ **Documentation**: Comprehensive README with all technical details and component examples
 
 ---
 

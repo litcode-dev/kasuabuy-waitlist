@@ -18,6 +18,7 @@ class WaitlistController extends Controller
             // Create new waitlist entry
             $waitlistEntry = WaitlistEntry::create([
                 'full_name' => $request->validated()['full_name'],
+                'email' => $request->validated()['email'] ?? null,
                 'phone_number' => $request->validated()['phone_number'],
                 'language' => $request->validated()['language'],
             ]);
@@ -28,6 +29,7 @@ class WaitlistController extends Controller
                 'data' => [
                     'id' => $waitlistEntry->id,
                     'full_name' => $waitlistEntry->full_name,
+                    'email' => $waitlistEntry->email,
                     'phone_number' => $waitlistEntry->phone_number,
                     'language' => $waitlistEntry->language,
                     'created_at' => $waitlistEntry->created_at->toISOString(),

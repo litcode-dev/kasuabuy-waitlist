@@ -70,7 +70,7 @@ export default function SuccessMessage({ isOpen, onClose, userName }: SuccessMes
               <Share2 className="w-5 h-5 mr-2" />
               {t('success.shareMessage')}
             </button>
-            
+
             <button
               onClick={onClose}
               className="w-full bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
@@ -84,7 +84,7 @@ export default function SuccessMessage({ isOpen, onClose, userName }: SuccessMes
         <div className="px-8 py-4 bg-gray-50 rounded-b-2xl">
           <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
             <CheckCircle className="w-4 h-4 text-green-500" />
-            <span>You're now on the waitlist!</span>
+            <span>You&apos;re now on the waitlist!</span>
           </div>
         </div>
       </div>

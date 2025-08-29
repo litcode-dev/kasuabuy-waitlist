@@ -25,6 +25,7 @@ class WaitlistRequest extends FormRequest
     {
         return [
             'full_name' => 'required|string|min:2|max:100',
+            'email' => 'nullable|email|max:255',
             'phone_number' => [
                 'required',
                 'string',
@@ -94,6 +95,8 @@ class WaitlistRequest extends FormRequest
             'full_name.required' => 'Full name is required.',
             'full_name.min' => 'Full name must be at least 2 characters.',
             'full_name.max' => 'Full name cannot exceed 100 characters.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.max' => 'Email address cannot exceed 255 characters.',
             'phone_number.required' => 'Phone number is required.',
             'phone_number.regex' => 'Please enter a valid Nigerian phone number (e.g., +2348123456789, 08123456789, or 2348123456789).',
             'language.required' => 'Language selection is required.',

@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslation } from 'next-i18next';
-import { Globe, X } from 'lucide-react';
 import { useLanguage, type Language } from '@/hooks/useLanguage';
 
 interface LanguageModalProps {

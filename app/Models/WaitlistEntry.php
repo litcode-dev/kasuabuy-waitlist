@@ -16,6 +16,7 @@ class WaitlistEntry extends Model
      */
     protected $fillable = [
         'full_name',
+        'email',
         'phone_number',
         'language',
     ];

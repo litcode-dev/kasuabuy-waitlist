@@ -8,9 +8,9 @@ import {
   useMotionValueEvent,
 } from 'motion/react';
 import { useTranslation } from 'next-i18next';
-import { useLanguage } from '@/hooks/useLanguage';
+// import { useLanguage } from '@/hooks/useLanguage';
 import { cn } from '@/lib/utils';
-import { X, Globe, ArrowUpRight } from 'lucide-react';
+import { X, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 
 export const KasuaBuyFloatingNav = ({
@@ -19,7 +19,7 @@ export const KasuaBuyFloatingNav = ({
   className?: string;
 }) => {
   const { t } = useTranslation('common');
-  const { getCurrentLanguage, setLanguage } = useLanguage();
+//   const { getCurrentLanguage, selectLanguage } = useLanguage();
   const { scrollYProgress } = useScroll();
   const [visible, setVisible] = useState(false);
 
@@ -46,11 +46,11 @@ export const KasuaBuyFloatingNav = ({
     }
   };
 
-  const toggleLanguage = () => {
-    const currentLang = getCurrentLanguage();
-    const newLang = currentLang === 'en' ? 'ha' : 'en';
-    setLanguage(newLang);
-  };
+//   const toggleLanguage = () => {
+//     const currentLang = getCurrentLanguage();
+//     const newLang = currentLang === 'en' ? 'ha' : 'en';
+//     selectLanguage(newLang);
+//   };
 
   const navItems = [
     {
