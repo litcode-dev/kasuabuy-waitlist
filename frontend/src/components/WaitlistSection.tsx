@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { Loader2, CheckCircle, ArrowRight } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useWaitlist } from '@/hooks/useWaitlist';
 import { useLanguage } from '@/hooks/useLanguage';
 import type { WaitlistFormData } from '@/lib/validation';
@@ -12,6 +13,11 @@ export default function WaitlistSection() {
   const { t } = useTranslation('common');
   const { getCurrentLanguage } = useLanguage();
   const { isSubmitting, isSuccess, errors, submitForm, resetForm } = useWaitlist();
+  
+  // Parallax scroll effects
+  const { scrollYProgress } = useScroll();
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
   const [formData, setFormData] = useState<WaitlistFormData>({
     full_name: '',
@@ -89,28 +95,54 @@ export default function WaitlistSection() {
   }
 
   return (
-    <div id="waitlist" className="flex flex-col justify-center items-center py-16 px-4 relative overflow-hidden h-[80vh]" style={{backgroundColor: '#5F017B'}}>
-      {/* Confetti/Flower decorations */}
-      <div className="absolute inset-0 pointer-events-none">
+    <div id="waitlist" className="flex flex-col justify-center items-center py-24 lg:py-16 px-4 relative overflow-hidden  lg:h-[80dvh]" style={{backgroundColor: '#5F017B'}}>
+      {/* Confetti/Flower decorations with parallax */}
+      <motion.div 
+        className="lg:absolute  hidden lg:flex items-center inset-0 pointer-events-none"
+        style={{ y: y1 }}
+      >
+       <Image src={'/flower.png'} width={400} height={400} alt="flower" />
+      </motion.div>
 
+       <motion.div 
+         className="flex lg:hidden items-center h-32 w-32 inset-0 pointer-events-none"
+         style={{ y: y2 }}
+       >
+       <Image src={'/flower-2.png'} width={400} height={400} alt="flower" />
+      </motion.div>
 
-       <Image src={'/flower.png'} width={500} height={500} alt="flower" />
-      </div>
-
-      <div className="max-w-xl mx-auto text-center text-white relative z-10">
+      <div className="max-w-full  text-center text-white relative z-10">
         {/* Title */}
-        <h2 className="text-3xl font-bold mb-4">
+        <motion.h2 
+          className=" text-[36px] lg:text-[48px] font-medium mb-4"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           {t('waitlist.title').split('2025')[0]}
           <span className="text-[#FFCC00]">2025!</span>
-        </h2>
+        </motion.h2>
 
         {/* Subtitle */}
-        <p className="text-lg mb-8">
+        <motion.p 
+          className="text-[24px] lg:text-[32px] mb-8 px-[10%] text-center "
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
           {t('waitlist.subtitle')}
-        </p>
+        </motion.p>
 
         {/* User Avatars */}
-        <div className="flex items-center justify-center mb-8">
+        <motion.div 
+          className="flex items-center justify-center mb-8"
+          initial={{ opacity: 0, scale: 0.8, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        >
           <div className="flex -space-x-2">
             <div className="w-10 h-10 bg-orange-400 rounded-full border-2 border-white flex items-center justify-center">
               <span className="text-white text-xs font-semibold">A</span>
@@ -126,10 +158,17 @@ export default function WaitlistSection() {
             </div>
           </div>
           <span className="ml-4 text-sm font-medium">{t('waitlist.signedUp')}</span>
-        </div>
+        </motion.div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <motion.form 
+          onSubmit={handleSubmit} 
+          className="space-y-4 px-10 lg:px-36 "
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           {/* General Error */}
           {errors.general && (
             <div className="p-4 bg-red-100 border border-red-200 rounded-lg">
@@ -138,7 +177,13 @@ export default function WaitlistSection() {
           )}
 
           {/* Name Field */}
-          <div className="text-left">
+          <motion.div 
+            className="text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <label className="block text-white text-sm font-medium mb-2">
               {t('form.name')}
             </label>
@@ -148,7 +193,7 @@ export default function WaitlistSection() {
               value={formData.full_name}
               onChange={handleInputChange}
               placeholder={t('form.namePlaceholder')}
-              className={`w-full px-6 py-4 rounded-full border-0 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base ${
+              className={`w-full px-6 py-4 text-[11px] lg:text-[14px]  rounded-full border-0 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base ${
                 errors.full_name ? 'bg-red-50' : 'bg-white'
               }`}
               disabled={isSubmitting}
@@ -156,10 +201,16 @@ export default function WaitlistSection() {
             {errors.full_name && (
               <p className="mt-2 text-sm text-red-200">{errors.full_name}</p>
             )}
-          </div>
+          </motion.div>
 
           {/* Phone Field */}
-          <div className="text-left">
+          <motion.div 
+            className="text-left"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <label className="block text-white text-sm font-medium mb-2">
               {t('form.phoneNumber')}
             </label>
@@ -169,7 +220,7 @@ export default function WaitlistSection() {
               value={formData.phone_number}
               onChange={handleInputChange}
               placeholder={t('form.phonePlaceholder')}
-              className={`w-full px-6 py-4 rounded-full border-0 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base ${
+              className={`w-full px-6 py-4 text-[11px] lg:text-[14px]  rounded-full border-0 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base ${
                 errors.phone_number ? 'bg-red-50' : 'bg-white'
               }`}
               disabled={isSubmitting}
@@ -177,13 +228,21 @@ export default function WaitlistSection() {
             {errors.phone_number && (
               <p className="mt-2 text-sm text-red-200">{errors.phone_number}</p>
             )}
-          </div>
+          </motion.div>
 
           {/* Submit Button */}
+          <motion.div 
+            className='flex flex-col items-center'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+
           <button
             type="submit"
             disabled={isSubmitting || !isFormValid}
-            className="w-full text-[#5F017B] py-4 px-8 rounded-full font-bold text-base hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center mt-6"
+            className=" text-[#5F017B] text-center text-[11px] lg:text-[14px]  py-4 px-8 rounded-full  text-base hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center mt-6"
             style={{backgroundColor: '#FFCC00'}}
           >
             {isSubmitting ? (
@@ -198,7 +257,8 @@ export default function WaitlistSection() {
               </>
             )}
           </button>
-        </form>
+          </motion.div>
+        </motion.form>
       </div>
     </div>
   );

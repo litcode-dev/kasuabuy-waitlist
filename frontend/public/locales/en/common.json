@@ -36,7 +36,11 @@
   },
   "bottom": {
     "title": "Buy and Sell whatever you want anytime you want.",
-    "subtitle": "Made Specially and Locally for every Northern Nigerian Entrepreneur.",
+    "subtitle": {
+      "part1": "Made Specially and Locally for every",
+      "highlight": "Northern Nigerian",
+      "part2": "Entrepreneur."
+    },
     "asSeller": "As Seller",
     "asBuyer": "As Buyer",
     "subscribe": "Subscribe",

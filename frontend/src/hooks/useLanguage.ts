@@ -29,8 +29,10 @@ export function useLanguage() {
     localStorage.setItem('preferred-language', language);
     setShowLanguageModal(false);
     
-    // Change the locale
-    router.push(router.asPath, router.asPath, { locale: language });
+    // Change the locale and reload the page to ensure all translations are loaded
+    router.push(router.asPath, router.asPath, { locale: language }).then(() => {
+      window.location.reload();
+    });
   };
 
   const getCurrentLanguage = (): Language => {

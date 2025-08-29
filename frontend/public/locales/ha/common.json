@@ -10,11 +10,11 @@
     "joinWaitlist": "Shiga Jerin Jira"
   },
   "hero": {
-    "title": "Ga namu Aikace-aikacen Siyayya ta Intanet na Arewa ya iso!",
+    "title": "Manhajar Kasuwancinmu ta Yanar Gizo ta Arewa ta Iso!",
     "subtitle": {
       "starting_from": "Farawa daga",
       "gombe": "Gombe!",
-      "spreading_north": "Yaduwa a duk Arewa!"
+      "spreading_north": "Za ta bazu duk fadin Arewa!"
     },
     "buyers": "Masu saye",
     "artisans": "Masu sana'a",
@@ -36,7 +36,11 @@
   },
   "bottom": {
     "title": "Saya da Sayarwa duk abin da kake so koyaushe.",
-    "subtitle": "An yi shi musamman da kuma gida don kowane ɗan kasuwa na Arewacin Najeriya.",
+    "subtitle": {
+      "part1": "An yi shi musamman da kuma gida don kowane",
+      "highlight": "ɗan kasuwa na Arewacin Najeriya",
+      "part2": "."
+    },
     "asSeller": "A matsayin Mai Sayarwa",
     "asBuyer": "A matsayin Mai Saye",
     "subscribe": "Yi Rajista",

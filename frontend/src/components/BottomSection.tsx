@@ -1,81 +1,116 @@
-'use client';
+"use client";
 
-import { useTranslation } from 'next-i18next';
-import { ShoppingCart, DollarSign } from 'lucide-react';
+import { useTranslation } from "next-i18next";
+import { ArrowUpRight, Facebook, Instagram, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import Link from "next/link";
 
 export default function BottomSection() {
-  const { t } = useTranslation('common');
+    const { t } = useTranslation("common");
 
-  return (
-    <div id="bottom" className="bg-white py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Phone Mockup */}
-          <div className="relative">
-            {/* Phone Frame */}
-            <div className="relative mx-auto w-64 h-[500px] bg-black rounded-[3rem] p-2">
-              {/* Screen */}
-              <div className="w-full h-full bg-gradient-to-b from-purple-100 to-purple-200 rounded-[2.5rem] overflow-hidden">
-                {/* Status Bar */}
-                <div className="h-8 bg-black rounded-t-[2.5rem] flex items-center justify-center">
-                  <div className="w-20 h-1 bg-gray-600 rounded-full"></div>
-                </div>
-                
-                {/* Screen Content */}
-                <div className="p-4 h-full">
-                  {/* As Seller Section */}
-                  <div className="bg-green-100 rounded-2xl p-4 mb-4 relative">
-                    <div className="flex items-center mb-2">
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-2">
-                        <DollarSign className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-sm font-semibold text-green-800">{t('bottom.asSeller')}</span>
+    return (
+        <div id="bottom" className="bg-white py-16 px-4">
+            <div className="max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    {/* Phone Mockup */}
+                    <div className="relative">
+                        {/* Phone Frame */}
+                        <motion.div
+                            className="cursor-pointer"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <Image
+                                height={1000}
+                                width={1500}
+                                src="/phone02.png"
+                                alt="phone"
+                                className="w-full h-full from-purple-100 to-purple-200"
+                            />
+                        </motion.div>
                     </div>
-                  </div>
-                  
-                  {/* As Buyer Section */}
-                  <div className="bg-purple-100 rounded-2xl p-4">
-                    <div className="flex items-center mb-2">
-                      <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-2">
-                        <ShoppingCart className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-sm font-semibold text-purple-800">{t('bottom.asBuyer')}</span>
+
+                    {/* Content */}
+                    <div className="text-center w-full">
+                        <TypewriterEffect
+                            words={t("bottom.title")
+                                .split(" ")
+                                .map((word) => ({
+                                    text: word,
+                                    className: "text-gray-900",
+                                }))}
+                            className="text-[32px] lg:text-[48px] font-medium lg:font-semibold mb-6"
+                            cursorClassName="bg-purple-500"
+                        />
+
+                        <p className="text-[13.8px] lg:text-[18px] text-gray-600 mb-8 ">
+                            <span className="">
+                                {t('bottom.subtitle.part1')}{" "}
+                            </span>
+                            <span className="font-medium text-purple-700">
+                                {t('bottom.subtitle.highlight')}
+                            </span>
+                            <span className=""> {t('bottom.subtitle.part2')}</span>
+                        </p>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center  mb-8">
+                            <button
+                                className="text-[#5F017B] flex justify-center items-center text-[11px] lg:text-[14px] px-6 py-3 rounded-full hover:scale-105 hover:shadow-3xl hover:bg-gray-50 transition-all duration-300 ease-in-out shadow-2xl"
+                                style={{ backgroundColor: "#ffffff" }}
+                            >
+                                {t("bottom.subscribe")}
+                                <ArrowUpRight className="w-3 h-3 lg:w-4 lg:h-4 ml-1 lg:ml-2" />
+                            </button>
+                            <button
+                                className="text-[#5F017B] px-6 py-3 rounded-full text-[11px] lg:text-[14px] hover:scale-105 hover:shadow-3xl hover:bg-yellow-300 transition-all duration-300 ease-in-out shadow-lg"
+                                style={{ backgroundColor: "#FCD34D" }}
+                            >
+                                {t("bottom.joinCommunity")}
+                            </button>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
+                <div className="flex flex-col items-center justify-center w-full gap-16">
+                    <h5 className="text-[18px] lg:text-[24px] text-[#565656] ">Follow Us</h5>
+                    <div className="flex gap-10">
+                         <Link
+                            href="https://www.linkedin.com/company/kasuabuy"
+                            target="_blank"
+                            className="hover:scale-110 transition-all duration-300 ease-in-out bg-[#FDF5FF] p-5 rounded-full"
+                        >
+                            <Linkedin className="text-[#5F017B]  h-[32px] w-[32px] lg:h-[43px] lg:w-[43px]" />
+                        </Link>
 
-          {/* Content */}
-          <div className="text-center lg:text-left">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              {t('bottom.title')}
-            </h2>
-            
-            <p className="text-lg text-gray-600 mb-8">
-              <span className="font-semibold">Made Specially and Locally for every </span>
-              <span className="font-bold text-purple-700">Northern Nigerian</span>
-              <span className="font-semibold"> Entrepreneur.</span>
-            </p>
+                         <Link
+                            href="https://www.instagram.com/kasuabuy"
+                            target="_blank"
+                            className="hover:scale-110 transition-all duration-300 ease-in-out bg-[#FDF5FF] p-5 rounded-full"
+                        >
+                            <Instagram className="text-[#5F017B] h-[32px] w-[32px] lg:h-[43px] lg:w-[43px]"  />
+                        </Link>
+                        <Link
+                            href="https://www.facebook.com/share/1G1tCGGum5"
+                            target="_blank"
+                            className="hover:scale-110 transition-all duration-300 ease-in-out bg-[#FDF5FF] p-5 rounded-full"
+                        >
+                            <Facebook className="text-[#5F017B] h-[32px] w-[32px] lg:h-[43px] lg:w-[43px]"  />
+                        </Link>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <button className="text-white px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-colors" style={{backgroundColor: '#7C3AED'}}>
-                {t('bottom.subscribe')}
-              </button>
-              <button className="text-black px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-colors" style={{backgroundColor: '#FCD34D'}}>
-                {t('bottom.joinCommunity')}
-              </button>
-            </div>
 
-            {/* Contact Email */}
-            <div className="text-sm text-gray-500">
-              <p>{t('bottom.email')}</p>
+
+                    </div>
+                    {/* Contact Email */}
+                    <div className="text-sm text-gray-500">
+                        <p>{t("bottom.email")}</p>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 }

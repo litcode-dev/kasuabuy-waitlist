@@ -34,7 +34,7 @@ export const TextGenerateEffect = ({
 
   const renderWords = () => {
     return (
-      <motion.div ref={scope} >
+      <motion.div ref={scope} className="text-[40px] lg:text-[54px] font-medium" >
         {wordsArray.map((word, idx) => {
           return (
             <motion.span
@@ -50,7 +50,7 @@ export const TextGenerateEffect = ({
         })}
 
         {highlightedText && (
-            <span className="text-[#5F017B] font-medium">
+            <span className="text-[#5F017B] ">
               {highlightedText}
             </span>
           )}
@@ -60,8 +60,8 @@ export const TextGenerateEffect = ({
 
   return (
     <div className={cn("font-bold", className)}>
-      <div className="mt-4">
-        <div className=" dark:text-white text-black text-[54px]  tracking-wide">
+      <div className="mt-2">
+        <div className=" dark:text-white text-black text-[40px] md:text-[54px]  tracking-wide">
           {renderWords()}
 
         </div>

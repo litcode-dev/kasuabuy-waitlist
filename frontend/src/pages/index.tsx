@@ -13,8 +13,23 @@ export default function Home() {
 //   const { t } = useTranslation('common');
   const { showLanguageModal, setShowLanguageModal } = useLanguage();
 
+  // Test function to trigger language modal
+//   const testLanguageModal = () => {
+//     localStorage.removeItem('preferred-language');
+//     setShowLanguageModal(true);
+//   };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Test Button for Language Modal - Remove in production */}
+      {/* <button
+        onClick={testLanguageModal}
+        className="fixed top-4 right-4 z-50 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-red-600 transition-colors"
+        style={{ fontSize: '12px' }}
+      >
+        Test Language Modal
+      </button> */}
+
       {/* Language Selection Modal */}
       <LanguageModal
         isOpen={showLanguageModal}
@@ -24,7 +39,7 @@ export default function Home() {
       {/* Floating Navigation */}
       {/* <KasuaBuyFloatingNav /> */}
 
-      <FloatingNav className="hidden lg:flex"/>
+      <FloatingNav />
 
       {/* Header */}
       {/* <Header /> */}

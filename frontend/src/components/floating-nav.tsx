@@ -95,7 +95,7 @@ export const FloatingNav = ({
           color: 'white',
         }}
         className={cn(
-          "flex w-[60%] rounded-full fixed top-12 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2]  dark:bg-[#1E1E1E] bg-white  z-[5000] pr-9 pl-8 py-5 shadow-xl  items-center justify-between space-x-10",
+          "flex w-[90%]  lg:w-[60%] rounded-full fixed top-12 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2]  dark:bg-[#1E1E1E] bg-white  z-[5000] pr-6 pl-6 lg:pr-9 lg:pl-8 py-5 shadow-xl  items-center justify-between space-x-10",
           className
         )}
       >
@@ -120,7 +120,7 @@ export const FloatingNav = ({
             onClick={navItem.action}
             className="relative text-white items-center flex space-x-1 hover:text-yellow-300 transition-colors cursor-pointer"
           >
-            <Image src="/Kasuabuy.png" alt="KasuaBuy" width={150} height={150} />
+            <Image src="/Kasuabuy.png" alt="KasuaBuy" className="h-[25px] w-[100px] md:h-[38px] md:w-[120px]  lg:h-[48px] lg:w-[178px]" width={150} height={150} />
             {/* {navItem.icon && (
               <span className="block sm:hidden">{navItem.icon}</span>
             )} */}
@@ -147,11 +147,11 @@ export const FloatingNav = ({
         {/* Join Waitlist Button */}
         <button
           onClick={() => scrollToSection('waitlist')}
-          className="text-[#5F017B] px-12 py-6 rounded-full font-semibold hover:opacity-90 transition-colors text-sm flex items-center"
+          className="text-[#5F017B] px-4 py-2 md:px-8 md:py-4 lg:px-12 lg:py-6 rounded-full font-semibold hover:opacity-90 transition-colors text-[7.8px] md:text-sm flex items-center"
           style={{ backgroundColor: '#FFCC00' }}
         >
           {t('header.joinWaitlist')}
-          <ArrowUpRight className="w-4 h-4 ml-2" />
+          <ArrowUpRight className="w-3 h-3 lg:w-4 lg:h-4 ml-1 lg:ml-2" />
         </button>
 
 

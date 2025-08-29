@@ -11,7 +11,7 @@ export default function WaitlistForm() {
   const { t } = useTranslation('common');
   const { getCurrentLanguage } = useLanguage();
   const { isSubmitting, isSuccess, errors, submitForm, resetForm } = useWaitlist();
-  
+
   const [formData, setFormData] = useState<WaitlistFormData>({
     full_name: '',
     phone_number: '',
@@ -33,7 +33,7 @@ export default function WaitlistForm() {
       ...formData,
       language: getCurrentLanguage(),
     });
-    
+
     if (success) {
       // Form will show success state
       setFormData({
@@ -108,6 +108,8 @@ export default function WaitlistForm() {
               }`}
               disabled={isSubmitting}
             />
+
+
           </div>
           {errors.full_name && (
             <p className="mt-2 text-sm text-red-600">{errors.full_name}</p>
@@ -162,7 +164,7 @@ export default function WaitlistForm() {
 
       {/* Privacy Note */}
       <p className="mt-6 text-xs text-center text-gray-500">
-        We'll only use your information to notify you about our launch.
+        We&apos;ll only use your information to notify you about our launch.
       </p>
     </div>
   );
