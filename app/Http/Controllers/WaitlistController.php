@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WaitlistRequest;
+use App\Jobs\SendWaitlistWelcomeEmail;
 use App\Models\WaitlistEntry;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -22,6 +23,11 @@ class WaitlistController extends Controller
                 'phone_number' => $request->validated()['phone_number'],
                 'language' => $request->validated()['language'],
             ]);
+
+            // Dispatch email job if email is provided
+            if ($waitlistEntry->email) {
+                SendWaitlistWelcomeEmail::dispatch($waitlistEntry);
+            }
 
             return response()->json([
                 'success' => true,
